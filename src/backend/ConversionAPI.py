@@ -1,30 +1,39 @@
 from flask import Flask
 from flask_cors import CORS
 from flask import json
+from flask import request
 app = Flask('app')
 cors = CORS(app)
+defaultValue = -999
 
 @app.route('/')
+def convert():
+    IF = request.args.get('F', default = defaultValue, type = float)
+    IC = request.args.get('C', default = defaultValue, type = float)
+    data = json.jsonify({"return": "Methods Failed to load"})
+    #Error checking and mthod selection
+    if (IF == defaultValue and IC == defaultValue):
+      data = default()
+    elif (IF == defaultValue and IC != defaultValue):
+      data = CtoF(IC)
+    elif (IF != defaultValue and IC == defaultValue):
+      data = FtoC(IF)
+    else:
+      data = error()
+    return data
+
 def default():
-  data = {
-    "return": "No input was given"
-  }
-  return json.jsonify(data)
+    return json.jsonify({"return": "No input"})
 
-@app.route('/FtoC')
-def FtoC():
-  C1 = (70 - 32) * 5/9
-  data1 = {
-    "return": C1
-  }
-  return json.jsonify(data1)
+def FtoC(F1):
+    C1 = (F1 - 32) * (5 / 9)
+    return json.jsonify({"return": C1})
 
-@app.route('/CtoF')
-def CtoF():
-  F2 = (70 * 9/5) + 32
-  data2 = {
-    "return": F2
-  }
-  return json.jsonify(data2)
+def CtoF(C2):
+    F2 = (C2 * 9 / 5) + 32
+    return json.jsonify({"return": F2})
+
+def error():
+  return json.jsonify({"return": "Too many input"})
 
 app.run(host='0.0.0.0', port=8080)
