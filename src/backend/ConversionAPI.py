@@ -4,19 +4,18 @@ from flask import json
 app = Flask('app')
 cors = CORS(app)
 
-def FtoC(F)
-  C = (F - 32) × 5/9
-  return C
-  
-def CtoF(C)
-  F = (C × 9/5) + 32
-  return F
+@app.route('/FtoC')
+  def FtoC(F):
+    C = (F - 32) × 5/9
+    data = {
+      "return": C
+    }
+    return json.jsonify(data)
 
-@app.route('/')
-def get_data():
-  #Test Data
-  data = {
-    "value": 99,
-    "type": "F"
-  }
-  return json.jsonify(data)
+@app.route('/CtoF')
+  def CtoF(C)
+    F = (C × 9/5) + 32
+    data = {
+      "return": F
+    }
+    return json.jsonify(data)
