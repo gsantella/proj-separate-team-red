@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Temp Convert</title>
-
+    <script src="/assets/script.js"></script>
 
     <!-- Bootstrap core CSS -->
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,21 +33,21 @@
   </head>
   <body class="text-center">
     <!--Fahrenheit to Celsius Box-->
-    <form class="form-signin">
+    <form class="form-signin" onsubmit="return false">
   <h1 class="h3 mb-3 font-weight-normal">Fahrenheit to Celsius</h1>
   
   <input type="temp" id="inputFahrenheit" class="form-control" placeholder="Enter Fahrenheit" required autofocus>
-  <output id="outputFahrenheit" for="inputFahrenheit"></output> °C
+  <output id="outputFahrenheit" for="inputFahrenheit" ></output> °C
   
-  <button class="btn btn-lg btn-primary btn-block" id="btnFahrenheit" type="submit">Convert </button>
+  <button class="btn btn-lg btn-primary btn-block" id="btnFahrenheit" type="submit" onclick="fToC()">Convert </button>
 </form>
 <!--Celsius to Fahrenheit Box-->
-<form class="celsius">
+<form class="celsius" onsubmit="return false">
   <h1 class="h3 mb-3 font-weight-normal">Celsius to Fahrenheit</h1>
   <input type="temp" id="inputCelsius" class="form-control" placeholder="Enter Celsius" required autofocus>
   <output id="outputCelsius" for="inputCelsius"></output> °F
 
-  <button class="btn btn-lg btn-primary btn-block" id="btnCelsius" type="submit">Convert</button>
+  <button class="btn btn-lg btn-primary btn-block" id="btnCelsius" type="submit" onclick="cToF()">Convert</button>
 </form>
 
 

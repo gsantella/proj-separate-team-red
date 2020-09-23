@@ -1,6 +1,6 @@
 function fToC()
 {
-    num = document.getElementById(/*Fahrenheit Input ID*/).value;
+    num = document.getElementById("inputFahrenheit").value;
     var xmlhttp = new XMLHttpRequest();
     var url = "https://TESTAPI.dlaff666.repl.co?F=" + num;
     xmlhttp.onreadystatechange = function()
@@ -19,12 +19,12 @@ function printCResults(arr)
     var out = "";
     out = arr.return;
     out = Math.round(out * 100)/100;
-    document.getElementById(/*F to C Output ID*/).innerHTML = out + "&degC";
+    document.getElementById("outputFahrenheit").innerHTML = out;
 }
 
 function cToF()
 {
-    num = document.getElementById(/*Celcius Input ID*/).value;
+    num = document.getElementById("inputCelsius").value;
     var xmlhttp = new XMLHttpRequest();
     var url = "https://TESTAPI.dlaff666.repl.co?C=" + num;
     xmlhttp.onreadystatechange = function()
@@ -43,5 +43,5 @@ function printFResults(arr)
     var out = "";
     out = arr.return;
     out = Math.round(out * 100)/100;
-    document.getElementById(/*C to F Output ID*/).innerHTML = out + "&degF";
+    document.getElementById("outputCelsius").innerHTML = out;
 }
