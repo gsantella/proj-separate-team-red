@@ -7,8 +7,7 @@
     ],
     "routes": [
         { "src": "/", "dest": "src/frontend/index.html" },
-        { "src": "/api2", "dest": "src/backend/test.py" },
-        { "src": "/api2/.*", "dest": "src/backend/test.py" },
+        { "src": "/api2/(.*)", "dest": "src/backend/hello.py" },
         { "src": "/api/.*", "dest": "api/" },
         { "src": "/legacy", "status": 404},
         { "src": "/redirect", "status": 308, "headers": { "Location": "https://example.com/" } }
