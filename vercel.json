@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "src/frontend/*.html", "use": "@vercel/static" },
+        { "src": "src/backend/*.py", "use": "@vercel/python" },
+        { "src": "api/*.py", "use": "@vercel/python" }
+    ],
+    "routes": [
+        { "src": "/", "dest": "src/frontend/index.html" },
+        { "src": "/api2", "dest": "src/backend/test.py" },
+        { "src": "/api2/.*", "dest": "src/backend/test.py" },
+        { "src": "/api/.*", "dest": "api/" },
+        { "src": "/legacy", "status": 404},
+        { "src": "/redirect", "status": 308, "headers": { "Location": "https://example.com/" } }
+      ],
+      "github": {
+        "enabled": false
+      }
+}
